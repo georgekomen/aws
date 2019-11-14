@@ -35,5 +35,5 @@ function terminateInstance(instanceId) {
 listInstances()
 .then(console.log)
 
-terminateInstance('i-08bd6947d8c3c97f4')
-.then(console.log)
+// terminateInstance('i-08bd6947d8c3c97f4')
+// .then(console.log)

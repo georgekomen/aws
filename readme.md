@@ -20,4 +20,10 @@ Difines how the instance live
 
 * AMIs are region specific
 
+* AMIs in the market place come with pre-installed softwares e.g. node
+
+* AMIs are supper important as they can help you scale your instances up and down
+
+* we create an AMI from a running instance, the user data does not persist though but you can introduce this from a launch config
+
 2.) you can interact with aws services through their rest APIs, you however have to sign each request using aws credentials and add it as a query param in each request (multiple hashing levels, creating hmac). Because of the complexity of signing, aws created the aws sdk which is much easier to use.
