@@ -27,3 +27,5 @@ Difines how the instance live
 * we create an AMI from a running instance, the user data does not persist though but you can introduce this from a launch config
 
 2.) you can interact with aws services through their rest APIs, you however have to sign each request using aws credentials and add it as a query param in each request (multiple hashing levels, creating hmac). Because of the complexity of signing, aws created the aws sdk which is much easier to use.
+
+3.) all services and resources in aws have limits that you should be aware of so that you don't get fixed in a corner. e.g. ec2 have limits on the number of running instances per region, also AMIs are stored as an ebs snapshot which have a limit of 10,000, also note that you pay for every ebs snapshot that you have.
