@@ -5,6 +5,7 @@
  - elastic file system (efs) -> same as ebs only that it is scalable in size.
 
 * ebs backed AMI can be stopped without loosing data unlike instance volume backed AMI that can only be restarted or terminated. It cannot be stopped.
+* terminated instances cannot be restarted, stopped instances can be restarted
 * ebs can boot faster. instance volume is slower to boot because the AMI data must be transfered from s3.
 
 AMI visibility -> either public, explicit(visible to anyone with permissions) or implicit(only visible to you).
