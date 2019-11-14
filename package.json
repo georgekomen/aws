@@ -1,0 +1,23 @@
+{
+  "name": "aws-js-sdk-usage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "create-ec2-instance.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/georgekomen/aws-js-sdk-usage.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/georgekomen/aws-js-sdk-usage/issues"
+  },
+  "homepage": "https://github.com/georgekomen/aws-js-sdk-usage#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "aws-sdk": "^2.571.0"
+  }
+}
