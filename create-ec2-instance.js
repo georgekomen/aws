@@ -55,11 +55,24 @@ function createSecurityGroup(sgName) {
                         }
                     ]
                 }
-                ec2.authorizeClientVpnIngress(params, (err) => {
+                ec2.authorizeSecurityGroupIngress(params, (err) => {
                     if (err) reject(err)
                     else resolve()
                 })
             }
+        })
+    })
+}
+
+function createKeyPair(keyName) {
+    const params = {
+        KeyName: keyName
+    }
+
+    return new Promise((resolve, reject) => {
+        ec2.createKeyPair(params, (err, data) => {
+            if (err) reject(err)
+            else resolve(data)
         })
     })
 }

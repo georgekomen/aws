@@ -20,4 +20,3 @@ Difines how the instance live
 * AMIs are region specific
 
 2.) you can interact with aws services through their rest APIs, you however have to sign each request using aws credentials and add it as a query param in each request (multiple hashing levels, creating hmac). Because of the complexity of signing, aws created the aws sdk which is much easier to use.
-
