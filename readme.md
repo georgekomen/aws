@@ -39,3 +39,10 @@ Difines how the instance live
 6.) elb is an essential resource for any elastic web app establishing a single entry point for web request that can handle any size load. 
 - A target group is the destination defined where an elb will send requests into. Target groups are connected to auto scalling groups and ends up to be a group of ec2 instances
 - listener facilitates sending requests between the elb port and the target group ports
+- Auto scaling group are responsible for creating and removing instances from a group according to configured rules
+- An auto scaling policy difines when an asg should scale up or down:
+   - simple scaling policy - depends on cloudwatch alarm, you need an alarm for each action e.g. one for scaling up and another for scaling down
+   - step scaling policy defines  - defines multiple actions per alarm, continuosly performs actions
+   - target tracking policies - define metric target, recommended
+
+

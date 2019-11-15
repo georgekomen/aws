@@ -5,7 +5,7 @@ AWS.config.update({ region: 'ap-southeast-1' })
 
 const autoScaling = new AWS.AutoScaling()
 
-const lcName = 'komenLC'
+const lcName = 'komen-lc'
 const roleName = 'komenRole'
 const sgName = 'komen_sg'
 const keyName = 'komen-keys'
