@@ -65,7 +65,43 @@ function createIamRole (roleName) {
     })
   }  
 
+  function createSecurityGroup (sgName, port) {
+    return new Promise((resolve, reject) => {
+      const ec2 = new AWS.EC2()
+      const params = {
+        Description: sgName,
+        GroupName: sgName
+      }
+  
+      ec2.createSecurityGroup(params, (err, data) => {
+        if (err) reject(err)
+        else {
+          const params = {
+            GroupId: data.GroupId,
+            IpPermissions: [
+              {
+                IpProtocol: 'tcp',
+                FromPort: port,
+                ToPort: port,
+                IpRanges: [
+                  {
+                    CidrIp: '0.0.0.0/0'
+                  }
+                ]
+              }
+            ]
+          }
+          ec2.authorizeSecurityGroupIngress(params, (err) => {
+            if (err) reject(err)
+            else resolve(data.GroupId)
+          })
+        }
+      })
+    })
+  }
+
 module.exports = {
   persistKeyPair,
-  createIamRole
+  createIamRole,
+  createSecurityGroup
 }

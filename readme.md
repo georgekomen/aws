@@ -35,3 +35,7 @@ Difines how the instance live
 5.) launch config is a blueprint for creating an ec2 instance. It contains the AMI, instance type, sg and user data. It is used in conjuction with auto scaling groups
 
 * roles gives instance permissions to talk to other services in aws
+
+6.) elb is an essential resource for any elastic web app establishing a single entry point for web request that can handle any size load. 
+- A target group is the destination defined where an elb will send requests into. Target groups are connected to auto scalling groups and ends up to be a group of ec2 instances
+- listener facilitates sending requests between the elb port and the target group ports
