@@ -38,7 +38,7 @@ function createAutoScalingGroup(asgName, lcName) {
 function createASGPolicy(asgName, policyName) {
     const params = {
         AdjustmentType: 'ChangeInCapacity',
-        AutoScalingGroupNameGroupName: asgName,
+        AutoScalingGroupName: asgName,
         PolicyName: policyName,
         PolicyType: 'TargetTrackingScaling',
         TargetTrackingConfiguration: {

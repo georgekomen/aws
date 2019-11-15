@@ -44,5 +44,11 @@ Difines how the instance live
    - simple scaling policy - depends on cloudwatch alarm, you need an alarm for each action e.g. one for scaling up and another for scaling down
    - step scaling policy defines  - defines multiple actions per alarm, continuosly performs actions
    - target tracking policies - define metric target, recommended
+   
+**limits on autoscaling**
+- limits on number of groups and launch configurations
+- number of load balancers
+- one ssl cert per load balancer
+- one target group per load balancer
 
 
