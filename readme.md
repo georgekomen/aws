@@ -62,7 +62,28 @@ Difines how the instance live
     2. object expiration life cycle
 - when naming s3 buckets, avoid underscores since they are not allowed in URLs
 
+**limits on ebs and s3**
+- ec2 instance must be stopped before removing root ebs volume
+- ebs volume can be attached to a running instance apart from those with aws market place product code which must be stopped first
+- ebs volumes can only be attached to ec2 instances in the same region
+- you can have upto 100 buckets per account
+- bucket names must be globally unique
 
+**persistence in aws**
+- dynamo db through put capacity is the number of records that can be read or written per second
+- dynamo keys and secondary indexes - in order for dynamo to achieve high perfomance, it spreads your data accross many different pertitions. The attribute it uses on each item to decide which pertition to use is called the partition key / hash attribute. It is passed through a hash function that decides which partition to use. Each key must be unique per table
+- RDS is great because it takes care of maintenance tasks e.g. automated replicas and backups
 
+- elastic cache provides managed caching services used by web applications. There are two open source cache engines, that is redis and memcached
 
+**persistence limits**
+- dynamo - 5 global and 5 local secondary indexes per table, local secondary indexes must be created with the table and cannot be deleted after
+- tables with secondary indexes must be created one at a time
+- there are limits on number and size of rds databases
+- elastic cache has limits on number of clusters and nodes
+- you can't access elastic cache outside aws vpc
 
+**route53**
+routing policies:
+* allows you define the behaviour a routing rule follows once a request comes in
+* types: -simple, -weighted, - latency, - geolocation
