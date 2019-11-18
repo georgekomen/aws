@@ -15,7 +15,7 @@ function uploadS3Objects (bucketName, files) {
         ACL: 'public-read'
     }
 
-    const filePromise = files.map((file) => {
+    const filePromises = files.map((file) => {
         const newParams = Object.assign({}, params, {
             Body: file.contents,
             Key: file.name,
@@ -30,5 +30,5 @@ function uploadS3Objects (bucketName, files) {
         })
     })
 
-    return Promise.all(filePromise)
+    return Promise.all(filePromises)
 }
