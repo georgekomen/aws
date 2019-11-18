@@ -1,12 +1,15 @@
 **EC2**
 1.) aws provides a separation btwn the execution environment i.e cpu and the instance file system. File system can be from the following 3 options.
- - instance store volume -> physically connected, just like harddrive. they can't be reused by other instances.
+ - instance store volume -> physically connected, just like harddrive. they can't be reused by other instances, you can't create a snapshot from this type of storage
  - elastic block storage (ebs) -> independent networked volumes. Can be reused by other instances and can live on even after terminating the instance.
  - elastic file system (efs) -> same as ebs only that it is scalable in size.
 
 * ebs backed AMI can be stopped without loosing data unlike instance volume backed AMI that can only be restarted or terminated. It cannot be stopped.
 * terminated instances cannot be restarted, stopped instances can be restarted
 * ebs can boot faster. instance volume is slower to boot because the AMI data must be transfered from s3.
+* ebs volumes are replicated accross multiple availability zones to ensure no data loss
+* ebs can be detached and attached to a new instance
+* efs can connect to multiple instances at once and is good for big data type apps
 
 AMI visibility -> either public, explicit(visible to anyone with permissions) or implicit(only visible to you).
 
@@ -44,11 +47,22 @@ Difines how the instance live
    - simple scaling policy - depends on cloudwatch alarm, you need an alarm for each action e.g. one for scaling up and another for scaling down
    - step scaling policy defines  - defines multiple actions per alarm, continuosly performs actions
    - target tracking policies - define metric target, recommended
-   
+
 **limits on autoscaling**
 - limits on number of groups and launch configurations
 - number of load balancers
 - one ssl cert per load balancer
 - one target group per load balancer
+
+**s3**
+- versioning and lifecycle events
+- versioning - s3 stores previous versions of an object any time it is modified. you however will be billed for every version you keep
+- s3 life cycle helps manage s3 objects and reduce costs. - life cycle events define rules for objects according to how long since it was created. with life cycle events:
+    1. you can move objects to a cheaper storage e.g. s3 infrequent access storage or glacier. you can move previous versions of an object to this kind of storage
+    2. object expiration life cycle
+- when naming s3 buckets, avoid underscores since they are not allowed in URLs
+
+
+
 
 
