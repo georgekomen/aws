@@ -18,6 +18,6 @@
   "homepage": "https://github.com/georgekomen/aws-js-sdk-usage#readme",
   "devDependencies": {},
   "dependencies": {
-    "aws-sdk": "^2.571.0"
+    "aws-sdk": "^2.814.0"
   }
 }
